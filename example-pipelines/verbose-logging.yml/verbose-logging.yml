@@ -1,0 +1,18 @@
+---
+image: dokku/ci-docker-image
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  only:
+    - master
+  variables:
+    GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
+    # enable verbose git output
+    GIT_PUSH_FLAGS: '-vvv'
+    # enable verbose ssh output
+    GIT_SSH_COMMAND: 'ssh -vvv'
+  script: dokku-deploy
+  after_script: dokku-unlock
