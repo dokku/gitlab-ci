@@ -1,0 +1,16 @@
+---
+image: dokku/ci-docker-image
+
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  only:
+    - master
+  variables:
+    # specify the `main` branch as the remote branch to push to
+    BRANCH: main
+    GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
+  script: dokku-deploy
+  after_script: dokku-unlock
