@@ -1,0 +1,50 @@
+---
+image: dokku/ci-docker-image
+
+stages:
+  - deploy
+
+variables:
+  GIT_DEPTH: 0
+
+# only run this workflow when a merge request is opened
+workflow:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+
+review_app:
+  stage: deploy
+  environment:
+    name: review/$CI_MERGE_REQUEST_ID
+    url: https://review-appname-$CI_MERGE_REQUEST_ID.dokku.me/
+    on_stop: stop_review_app
+  only:
+    - branches
+  except:
+    - master
+  variables:
+    # create a review app
+    COMMAND: review-apps:create
+    GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
+    # specify a name for the review app
+    REVIEW_APP_NAME: review-appname-$CI_MERGE_REQUEST_ID
+  script: dokku-deploy
+  after_script: dokku-unlock
+
+stop_review_app:
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  environment:
+    name: review/$CI_MERGE_REQUEST_ID
+    action: stop
+  variables:
+    # destroy a review app
+    COMMAND: review-apps:create
+    GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
+    # specify a name for the review app
+    REVIEW_APP_NAME: review-appname-$CI_MERGE_REQUEST_ID
+  # only run manually when a merge request is closed
+  when: manual
+  script: dokku-deploy
+  after_script: dokku-unlock
