@@ -33,6 +33,7 @@ All examples below are functionally complete and can be copy-pasted into a `.git
 For simplicity, each example is standalone, but may be combined as necessary to create the desired effect.
 
 - [Simple Example](/example-pipelines/simple.yml): Deploys a codebase on push or merge to master.
+- [Cancel previous runs on new push](/example-pipelines/cancel-previous-runs.yml): This pipeline is particularly useful when triggered by new pushes.
 - [Avoid SSH Host Keyscan](/example-pipelines/specify-ssh-host-key.yml): By default, this action will scan the host for it's SSH host key and use that value directly. This may not be desirable for security compliance reasons.
 
   The `SSH_HOST_KEY` value can be retrieved by calling `ssh-keyscan -t rsa $HOST`, where `$HOST` is the Dokku server's hostname.
