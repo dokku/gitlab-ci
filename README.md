@@ -2,6 +2,10 @@
 
 A collection of gitlab-ci examples
 
+## Requirements
+
+Please note that these workflows are compatible with `dokku >= 0.11.6`.
+
 ## Usage
 
 All examples require a `SSH_HOST_KEY` environment variable set for the Gitlab CI pipeline. This may be set via a "secret variable"
