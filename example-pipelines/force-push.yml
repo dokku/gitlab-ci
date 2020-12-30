@@ -1,0 +1,19 @@
+---
+image: dokku/ci-docker-image
+
+stages:
+  - deploy
+
+variables:
+  GIT_DEPTH: 0
+
+deploy:
+  stage: deploy
+  only:
+    - master
+  variables:
+    GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
+    # specify `--force` as a flag for git pushes
+    GIT_PUSH_FLAGS: '--force'
+  script: dokku-deploy
+  after_script: dokku-unlock
