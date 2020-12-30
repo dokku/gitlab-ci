@@ -4,6 +4,9 @@ image: dokku/ci-docker-image
 stages:
   - deploy
 
+variables:
+  GIT_DEPTH: 0
+
 deploy:
   stage: deploy
   only:
