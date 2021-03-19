@@ -35,15 +35,14 @@ stop_review_app:
   stage: deploy
   variables:
     GIT_STRATEGY: none
-  environment:
-    name: review/$CI_MERGE_REQUEST_ID
-    action: stop
-  variables:
     # destroy a review app
     COMMAND: review-apps:create
     GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
     # specify a name for the review app
     REVIEW_APP_NAME: review-appname-$CI_MERGE_REQUEST_ID
+  environment:
+    name: review/$CI_MERGE_REQUEST_ID
+    action: stop
   # only run manually when a merge request is closed
   when: manual
   script: dokku-deploy
