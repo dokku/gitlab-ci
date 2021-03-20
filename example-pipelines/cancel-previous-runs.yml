@@ -14,6 +14,6 @@ deploy:
   variables:
     GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
   script: dokku-deploy
-  after_script: dokku-unlock
+  after_script: [dokku-unlock]
   # marks a job as interruptable by a future pipeline run
   interruptible: true

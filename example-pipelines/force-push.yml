@@ -16,4 +16,4 @@ deploy:
     # specify `--force` as a flag for git pushes
     GIT_PUSH_FLAGS: '--force'
   script: dokku-deploy
-  after_script: dokku-unlock
+  after_script: [dokku-unlock]

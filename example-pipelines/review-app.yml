@@ -29,7 +29,7 @@ review_app:
     # specify a name for the review app
     REVIEW_APP_NAME: review-appname-$CI_MERGE_REQUEST_ID
   script: dokku-deploy
-  after_script: dokku-unlock
+  after_script: [dokku-unlock]
 
 stop_review_app:
   stage: deploy
@@ -46,4 +46,4 @@ stop_review_app:
   # only run manually when a merge request is closed
   when: manual
   script: dokku-deploy
-  after_script: dokku-unlock
+  after_script: [dokku-unlock]

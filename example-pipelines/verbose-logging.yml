@@ -18,4 +18,4 @@ deploy:
     # enable verbose ssh output
     GIT_SSH_COMMAND: 'ssh -vvv'
   script: dokku-deploy
-  after_script: dokku-unlock
+  after_script: [dokku-unlock]

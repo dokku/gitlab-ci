@@ -16,4 +16,4 @@ deploy:
     # specify an alternative ssh host key
     SSH_HOST_KEY: $SOME_SSH_HOST_KEY
   script: dokku-deploy
-  after_script: dokku-unlock
+  after_script: [dokku-unlock]
