@@ -8,7 +8,7 @@ Please note that these workflows are compatible with `dokku >= 0.11.6`.
 
 ## Usage
 
-All examples require a `SSH_HOST_KEY` environment variable set for the Gitlab CI pipeline. This may be set via a "secret variable"
+All examples require a `SSH_PRIVATE_KEY` environment variable set for the Gitlab CI pipeline. This may be set via a "secret variable"
 
 ### Adding a secret variable
 
