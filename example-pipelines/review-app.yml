@@ -36,7 +36,7 @@ stop_review_app:
   variables:
     GIT_STRATEGY: none
     # destroy a review app
-    COMMAND: review-apps:create
+    COMMAND: review-apps:destroy
     GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
     # specify a name for the review app
     REVIEW_APP_NAME: review-appname-$CI_MERGE_REQUEST_ID
