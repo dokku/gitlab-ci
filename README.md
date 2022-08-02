@@ -8,7 +8,7 @@ Please note that these workflows are compatible with `dokku >= 0.11.6`.
 
 ## Usage
 
-All examples require a `SSH_PRIVATE_KEY` environment variable set for the Gitlab CI pipeline. This may be set via a "secret variable"
+All examples require a `SSH_PRIVATE_KEY` environment variable set for the Gitlab CI pipeline. This may be set via a "secret variable". See [this doc](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) for instructions on creating a new ssh key. Be careful not to overwrite existing keys on the generating machine by using a new name.
 
 ### Adding a secret variable
 
