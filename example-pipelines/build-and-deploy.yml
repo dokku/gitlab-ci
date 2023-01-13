@@ -18,7 +18,7 @@ build:
 
     # login to docker hub
     echo "$DOCKERHUB_TOKEN" | docker login --username "$DOCKERHUB_USERNAME" --password-stdin
-    
+
     # push the image
     docker push "$CI_PROJECT_PATH_SLUG:$CI_COMMIT_SHA"
 
