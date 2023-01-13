@@ -28,7 +28,7 @@ Click on `Secret variables > Expand` and fill in the blanks.
 
 ## Environment Variables
 
-- `BRANCH`: (_optional_) The branch to deploy when pushing to Dokku. Useful when a [custom deploy branch](http://dokku.viewdocs.io/dokku/deployment/methods/git/#changing-the-deploy-branch) is set on Dokku.
+- `BRANCH`: (_optional_) The branch to deploy when pushing to Dokku. Useful when a [custom deploy branch](https://dokku.com/docs/deployment/methods/git/#changing-the-deploy-branch) is set on Dokku.
   - default: `master`
   - example value: `main`
 - `CI_BRANCH_NAME`: (_optional_) The branch name that triggered the deploy. Automatically detected from `CI_COMMIT_REF_NAME`.
