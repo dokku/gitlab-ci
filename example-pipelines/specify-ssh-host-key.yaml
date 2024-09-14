@@ -10,7 +10,7 @@ variables:
 deploy:
   stage: deploy
   only:
-    - master
+    - main
   variables:
     GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
     # specify an alternative ssh host key

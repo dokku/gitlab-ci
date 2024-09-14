@@ -10,10 +10,10 @@ variables:
 deploy:
   stage: deploy
   only:
-    - master
+    - main
   variables:
-    # specify the `main` branch as the remote branch to push to
-    BRANCH: main
+    # specify the `develop` branch as the remote branch to push to
+    BRANCH: develop
     GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
   script: dokku-deploy
   after_script: [dokku-unlock]

@@ -11,7 +11,7 @@ variables:
 build:
   stage: build
   only:
-    - master
+    - main
   script: |
     # build the image
     docker build -t "$CI_PROJECT_PATH_SLUG:$CI_COMMIT_SHA" .
@@ -25,7 +25,7 @@ build:
 deploy:
   stage: deploy
   only:
-    - master
+    - main
   variables:
     GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
     DEPLOY_DOCKER_IMAGE: $CI_PROJECT_PATH_SLUG:$CI_COMMIT_SHA
