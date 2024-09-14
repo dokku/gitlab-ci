@@ -21,7 +21,7 @@ review_app:
   only:
     - branches
   except:
-    - master
+    - main
   variables:
     # create a review app
     COMMAND: review-apps:create
