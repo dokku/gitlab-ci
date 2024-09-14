@@ -28,6 +28,6 @@ deploy:
     - master
   variables:
     GIT_REMOTE_URL: ssh://dokku@dokku.me:22/appname
-  script: |
-    DEPLOY_DOCKER_IMAGE "$CI_PROJECT_PATH_SLUG:$CI_COMMIT_SHA" dokku-deploy
+    DEPLOY_DOCKER_IMAGE: $CI_PROJECT_PATH_SLUG:$CI_COMMIT_SHA
+  script: dokku-deploy
   after_script: [dokku-unlock]
